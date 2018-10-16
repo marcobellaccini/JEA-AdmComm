@@ -57,6 +57,6 @@ You can use the link to let users launch the program with administrative rights 
 Open a command prompt (or a PowerShell) **as Administrator** and run:
 
 ```
-powershell [PATH_TO_INSTALL.ps1] [GROUP] [TGTEXE] [PSEXEC64_PATH] -uninstall
+powershell [PATH_TO_INSTALL.ps1] [DOMAIN\GROUP] [TGTEXE] [PSEXEC64_PATH] -uninstall
 ```
 
