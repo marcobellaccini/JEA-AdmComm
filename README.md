@@ -40,12 +40,12 @@ After this, you should [download PsExec](https://docs.microsoft.com/en-us/sysint
 Then, open a command prompt (or a PowerShell) **as Administrator** and run:
 
 ```
-powershell [PATH_TO_INSTALL.ps1] [GROUP] [PATH_TO_TGTEXE] [PATH_TO_PSEXEC64]
+powershell [PATH_TO_INSTALL.ps1] [DOMAIN\GROUP] [PATH_TO_TGTEXE] [PATH_TO_PSEXEC64]
 ```
 
 where:
 - PATH_TO_INSTALL.ps1 is the full path of the INSTALL.ps1 script bundled with JEA-AdmComm
-- GROUP is the group of the users that will be granted permission to run the program with administrative privileges **in the form DOMAIN\GROUP** (you can use .\GROUP for local groups)
+- DOMAIN\GROUP is the group of the users that will be granted permission to run the program with administrative privileges (**in the form DOMAIN\GROUP** - you can use .\GROUP for local groups)
 - PATH_TO_TGTEXE is the full path of the executable to launch with administrative rights
 - PATH_TO_PSEXEC64 is the full path of the PsExec64 executable (32 bit systems are not supported!)
 
