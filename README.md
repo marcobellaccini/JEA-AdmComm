@@ -1,6 +1,9 @@
 # JEA-AdmComm
+JEA-AdmComm is a tool that allows certain users to start a specific program with administrative privileges in Microsoft Windows.
 
-JEA-AdmComm is a PowerShell module that leverages [JEA](https://docs.microsoft.com/en-us/powershell/jea/overview) and [PsExec](https://docs.microsoft.com/en-us/sysinternals/downloads/psexec) to let certain unprivileged users run a specific process with full administrative privileges.
+Selected users will be able to start that program in privileged mode just by clicking on a link, without entering any password.
+
+It's a PowerShell module that leverages [JEA](https://docs.microsoft.com/en-us/powershell/jea/overview) and [PsExec](https://docs.microsoft.com/en-us/sysinternals/downloads/psexec) to let certain unprivileged users run a specific process with full administrative privileges.
 
 Technically, it uses JEA to run PsExec with administrative rights, which in turn runs the specific process with the privileges of the System account.
 
@@ -21,8 +24,9 @@ For example, after opening Paint with administrative rights, a user can select F
 
 *So, why should I use it?*
 
-You should prefer it over other 3rd party solutions for three reasons:
+You should prefer it over other 3rd party solutions for four reasons:
 - it is just a PowerShell module, using Microsoft-only software to get the job done
+- for the users, it is as easy as clicking on a link (no passwords to type!)
 - it does not store any password (neither in plaintext nor encrypted)
 - it is free and open source (but, of course, leverages Microsoft components such as PowerShell and PsExec, that come with their own licenses)
 
