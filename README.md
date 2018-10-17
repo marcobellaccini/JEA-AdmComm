@@ -65,7 +65,7 @@ where:
 - PATH_TO_PSEXEC64 is the full path of the PsExec64 executable (32 bit systems are not supported!)
 - *when passing the arguments, if a path contains spaces, it must be enclosed in double (")* **AND** *single (') quotation marks like this: "'path with spaces'")*
 
-This will install the PowerShell module, configure JEA in the right way and create some nice links (with name beginning with "ADM_") in the *Links* folder (which is in the same folder where INSTALL.ps1 is located).
+This will install the PowerShell module, configure JEA in the right way and create some nice links (with name beginning with "ADM_") in the *Links* folder (that will be created in the same folder where INSTALL.ps1 is located).
 
 You can use the links to let users launch the programs with administrative rights (so, you'll probably need to copy the links somewhere - e.g. on target users' desktops).
 

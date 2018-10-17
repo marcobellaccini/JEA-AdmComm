@@ -71,6 +71,9 @@ $progpathcsl = $progpathsen -join ", "
 # register configuration
 Register-PSSessionConfiguration -Path $psscf -Name 'JEA-AdmComm' -Force
 
+# create links folder
+New-Item -ItemType directory -Path "$PSScriptRoot\Links" -Force | Out-Null
+
 # create nice links
 foreach ($pp in $progpaths) {
   $comNum = [array]::IndexOf($progpaths, $pp)
