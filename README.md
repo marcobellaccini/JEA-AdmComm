@@ -1,9 +1,9 @@
 # JEA-AdmComm
-JEA-AdmComm is a tool that allows certain users to start a specific program with administrative privileges in Microsoft Windows.
+JEA-AdmComm is a tool that allows certain users to start some specific programs with administrative privileges in Microsoft Windows.
 
-Selected users will be able to start that program in privileged mode just by clicking on a link, without entering any password.
+Selected users will be able to start those programs in privileged mode just by clicking on a link, without entering any password.
 
-It's a PowerShell module that leverages [JEA](https://docs.microsoft.com/en-us/powershell/jea/overview) and [PsExec](https://docs.microsoft.com/en-us/sysinternals/downloads/psexec) to let certain unprivileged users run a specific process with full administrative privileges.
+It's a PowerShell module that leverages [JEA](https://docs.microsoft.com/en-us/powershell/jea/overview) and [PsExec](https://docs.microsoft.com/en-us/sysinternals/downloads/psexec) to let certain unprivileged users run specific processes with full administrative privileges.
 
 Technically, it uses JEA to run PsExec with administrative rights, which in turn runs the specific process with the privileges of the System account.
 
@@ -55,24 +55,24 @@ Set-Service -Name "winrm" -Status Running
 Then, to install the module, type:
 
 ```
-powershell -ExecutionPolicy Bypass [PATH_TO_INSTALL.ps1] [DOMAIN\GROUP] [PATH_TO_TGTEXE] [PATH_TO_PSEXEC64]
+powershell -ExecutionPolicy Bypass [PATH_TO_INSTALL.ps1] [PATH_TO_PSEXEC64] [DOMAIN\GROUP] [PATH_TO_TGTEXE1(,PATH_TO_TGTEXE2...)]
 ```
 
 where:
 - PATH_TO_INSTALL.ps1 is the full path of the INSTALL.ps1 script bundled with JEA-AdmComm
 - DOMAIN\GROUP is the group of the users that will be granted permission to run the program with administrative privileges (**in the form DOMAIN\GROUP** - you can use .\GROUP for local groups)
-- PATH_TO_TGTEXE is the full path of the executable to launch with administrative rights
+- PATH_TO_TGTEXE1(,PATH_TO_TGTEXE2...) is a comma-separated list of the full paths of the executables to launch with administrative rights
 - PATH_TO_PSEXEC64 is the full path of the PsExec64 executable (32 bit systems are not supported!)
-- **you'll have to enclose strings containing spaces in this combo of quotation marks: "'I CONTAIN SPACES'"**
+- *when passing the arguments, if a path contains spaces, it must be enclosed in double (")* **AND** *single (') quotation marks like this: "'path with spaces'")*
 
-This will install the PowerShell module, configure JEA in the right way and create a nice link (with name beginning with "ADM_") in the same folder where INSTALL.ps1 is located.
+This will install the PowerShell module, configure JEA in the right way and create some nice links (with name beginning with "ADM_") in the *Links* folder (which is in the same folder where INSTALL.ps1 is located).
 
-You can use the link to let users launch the program with administrative rights (so, you'll probably need to copy the link somewhere - e.g. on target users' desktops).
+You can use the links to let users launch the programs with administrative rights (so, you'll probably need to copy the links somewhere - e.g. on target users' desktops).
 
 ## Uninstallation
 Open a command prompt (or a PowerShell) **as Administrator** and run:
 
 ```
-powershell -ExecutionPolicy Bypass [PATH_TO_INSTALL.ps1] [DOMAIN\GROUP] [PATH_TO_TGTEXE] [PATH_TO_PSEXEC64] -uninstall
+powershell -ExecutionPolicy Bypass [PATH_TO_INSTALL.ps1] [PATH_TO_PSEXEC64] [DOMAIN\GROUP] [PATH_TO_TGTEXE1(,PATH_TO_TGTEXE2...)] -uninstall
 ```
 
