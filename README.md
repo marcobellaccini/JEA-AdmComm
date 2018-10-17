@@ -41,10 +41,21 @@ If your are running at least Windows Server 2016 or an up-to-date Windows 10 you
 
 After this, you should [download PsExec](https://docs.microsoft.com/en-us/sysinternals/downloads/psexec), and extract the archive in some appropriate location (e.g.: C:\LocalAdministration\PSTools).
 
-Then, open a command prompt (or a PowerShell) **as Administrator** and run:
+Then, open a command prompt (or a PowerShell) **as Administrator**.
+
+In order to setup WinRM (used by JEA), you have to type:
 
 ```
-powershell [PATH_TO_INSTALL.ps1] [DOMAIN\GROUP] [PATH_TO_TGTEXE] [PATH_TO_PSEXEC64]
+Set-Service -Name winrm -StartupType Automatic
+Set-Service -Name "winrm" -Status Running
+```
+
+(this shouldn't be needed on Windows Server since WinRM is enabled by default).
+
+Then, to install the module, type:
+
+```
+powershell -ExecutionPolicy Bypass [PATH_TO_INSTALL.ps1] [DOMAIN\GROUP] [PATH_TO_TGTEXE] [PATH_TO_PSEXEC64]
 ```
 
 where:
@@ -52,6 +63,7 @@ where:
 - DOMAIN\GROUP is the group of the users that will be granted permission to run the program with administrative privileges (**in the form DOMAIN\GROUP** - you can use .\GROUP for local groups)
 - PATH_TO_TGTEXE is the full path of the executable to launch with administrative rights
 - PATH_TO_PSEXEC64 is the full path of the PsExec64 executable (32 bit systems are not supported!)
+- **you'll have to enclose strings containing spaces in this combo of quotation marks: "'I CONTAIN SPACES'"**
 
 This will install the PowerShell module, configure JEA in the right way and create a nice link (with name beginning with "ADM_") in the same folder where INSTALL.ps1 is located.
 
@@ -61,6 +73,6 @@ You can use the link to let users launch the program with administrative rights 
 Open a command prompt (or a PowerShell) **as Administrator** and run:
 
 ```
-powershell [PATH_TO_INSTALL.ps1] [DOMAIN\GROUP] [PATH_TO_TGTEXE] [PATH_TO_PSEXEC64] -uninstall
+powershell -ExecutionPolicy Bypass [PATH_TO_INSTALL.ps1] [DOMAIN\GROUP] [PATH_TO_TGTEXE] [PATH_TO_PSEXEC64] -uninstall
 ```
 
