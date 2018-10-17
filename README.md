@@ -63,7 +63,7 @@ where:
 - DOMAIN\GROUP is the group of the users that will be granted permission to run the program with administrative privileges (**in the form DOMAIN\GROUP** - you can use .\GROUP for local groups)
 - PATH_TO_TGTEXE1(,PATH_TO_TGTEXE2...) is a comma-separated list of the full paths of the executables to launch with administrative rights
 - PATH_TO_PSEXEC64 is the full path of the PsExec64 executable (32 bit systems are not supported!)
-- *when passing the arguments, if a path contains spaces, it must be enclosed in double (")* **AND** *single (') quotation marks like this: "'path with spaces'")*
+- *when passing the arguments, if a path contains spaces, it must be enclosed in double (")* **AND** *single (') quotation marks like this: "'path with spaces'"*
 
 This will install the PowerShell module, configure JEA in the right way and create some nice links (with name beginning with "ADM_") in the *Links* folder (that will be created in the same folder where INSTALL.ps1 is located).
 
