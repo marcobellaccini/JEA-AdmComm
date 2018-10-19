@@ -41,7 +41,7 @@ If your are running at least Windows Server 2016 or an up-to-date Windows 10 you
 
 After this, you should [download PsExec](https://docs.microsoft.com/en-us/sysinternals/downloads/psexec), and extract the archive in some appropriate location (e.g.: C:\LocalAdministration\PSTools).
 
-Then, open a command prompt (or a PowerShell) **as Administrator**.
+Then, open a PowerShell **as Administrator**.
 
 In order to setup WinRM (used by JEA), you have to type:
 
